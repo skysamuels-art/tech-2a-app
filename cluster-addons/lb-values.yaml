@@ -1,0 +1,8 @@
+clusterName: tc2-eks
+region: us-west-1
+vpcId: vpc-0efae08d35cbaf3cb
+serviceAccount:
+  create: true
+  name: aws-load-balancer-controller
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::060255765406:role/tc2-eks-lb-controller

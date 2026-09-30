@@ -1,0 +1,12 @@
+image:
+  repository: 060255765406.dkr.ecr.us-west-1.amazonaws.com/hello-world
+  tag: "v1"
+replicaCount: 1
+resources:
+  requests: { cpu: 100m, memory: 64Mi }
+  limits:   { cpu: 250m, memory: 128Mi }
+hpa:
+  minReplicas: 1
+  maxReplicas: 12        # 3 pods per node x 4 nodes
+  cpuTarget: 50
+  memoryTarget: 50

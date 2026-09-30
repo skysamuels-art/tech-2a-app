@@ -1,0 +1,8 @@
+autoDiscovery:
+  clusterName: tc2-eks
+awsRegion: us-west-1
+rbac:
+  serviceAccount:
+    name: cluster-autoscaler
+    annotations:
+      eks.amazonaws.com/role-arn: arn:aws:iam::060255765406:role/tc2-eks-autoscaler
