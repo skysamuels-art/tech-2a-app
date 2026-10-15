@@ -1,0 +1,24 @@
+name: Check AWS connection
+
+on:
+  push:
+    branches:
+      - gitops
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  check-aws:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Sign in to AWS
+        uses: aws-actions/configure-aws-credentials@v6.3.0
+        with:
+          role-to-assume: arn:aws:iam::060255765406:role/tech-2a-github-role
+          aws-region: us-west-1
+
+      - name: Check AWS identity
+        run: aws sts get-caller-identity
